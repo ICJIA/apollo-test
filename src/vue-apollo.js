@@ -13,7 +13,7 @@ const AUTH_TOKEN = "jwt";
 
 // Http endpoint
 const httpEndpoint =
-  process.env.VUE_APP_GRAPHQL_HTTP || "http://localhost:1337/gaphql";
+  process.env.VUE_APP_GRAPHQL_HTTP || "http://localhost:1337/graphql";
 
 // Config
 const defaultOptions = {
