@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Get all posts</h1>
-
+    <h1>Get single post</h1>
     <div v-if="posts">
       {{ posts }}
     </div>
@@ -12,32 +11,29 @@
 
 <script>
 // @ is an alias to /src
-import { GET_ALL_POSTS_QUERY } from "@/queries/getPosts";
+import { GET_SINGLE_POST_QUERY } from "@/queries/getPosts";
 export default {
   name: "Home",
   components: {},
   data() {
     return {
       posts: null,
-      error: null,
-      isLoading: false
+      error: null
     };
   },
   mounted() {
-    //console.log(this.$apollo);
+    console.log(this.$apollo);
   },
   apollo: {
     posts: {
-      query: GET_ALL_POSTS_QUERY,
-      variables: {
-        slug: "test-post-one"
+      query: GET_SINGLE_POST_QUERY,
+      variables() {
+        return {
+          slug: "test-post-two"
+        };
       },
       error(error) {
         this.error = JSON.stringify(error.message);
-      },
-      watchLoading(isLoading, countModifier) {
-        this.isLoading = isLoading;
-        console.log(isLoading, countModifier);
       },
       result(ApolloQueryResult) {
         // console.log(ApolloQueryResult.data);

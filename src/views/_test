@@ -1,0 +1,7 @@
+async mounted() {
+    try {
+      this.posts = await this.$apollo.query({ query: GET_ALL_POSTS_QUERY });
+    } catch (e) {
+      console.log(e);
+    }
+  }
